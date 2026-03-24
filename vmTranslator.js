@@ -191,3 +191,104 @@ stream.on('data', chunk => {
 stream.on('end', () => {
     processCharacter('\n')
 })
+
+// let state = {
+//     op: 0,
+//     seg: 1,
+//     val: 3,
+//     com: 4,
+//     _val: null,
+//     reset() {
+//         state._val = state.op
+//     },
+//     isOpcode() {
+//         return state._val == state.op
+//     },
+//     comment() {
+//         state._val = state.com
+//     },
+//     isComment() {
+//         return state._val == state.com
+//     },
+//     value() {
+//         state._val = state.val
+//     },
+//     isValue() {
+//         return state._val == state.val
+//     }
+
+// }
+// state.reset();
+
+// let buffer = {
+//     value: null,
+//     reset() {
+//         buffer.value = ''
+//     },
+//     append(ch) {
+//         if (ch != ' ') buffer.value += ch
+//     },
+//     isEmpty() {
+//         return buffer.value == ''
+//     }
+// }
+// buffer.reset()
+
+// let expression = {
+//     op: null,
+//     seg: null,
+//     val: null,
+//     reset() {
+//         expression.op = ''
+//         expression.seg = ''
+//         expression.val = ''
+//     },
+//     opcode(op) {
+//         expression.op = op
+//     },
+//     segment(seg) {
+//         expression.seg = seg
+//     },
+//     value(val) {
+//         expression.val = val
+//     }
+// }
+// expression.reset()
+
+// module.exports.processChunk = function (chunk) {
+//     for (const ch of chunk) {
+//         if (ch == ' ') {
+        
+//             if (state.isComment()) return;
+        
+//         } else if (ch == '/') {
+            
+//             if (state.isComment()) return;
+            
+//             if (buffer.isEmpty()){
+//                 state.comment();
+//                 return;
+//             }
+            
+//             if (state.isOpcode()) {
+
+//             }
+        
+//         } else if (ch == '\n') {
+        
+//             state.reset();
+        
+//             if (buffer.isEmpty()) return;
+        
+//             console.log(expression.opcode, expression.segment, expression.value)
+        
+//         } else {
+        
+//             if (state.isComment()) return;
+        
+//             if (ch == '\r') return;
+        
+//             buffer.append(ch)
+//         }
+//     }
+// }
