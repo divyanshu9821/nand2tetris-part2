@@ -1,0 +1,3 @@
+push constant 7
+gt
+pop local 8
