@@ -1,4 +1,4 @@
-const opcodes = {
+export const opcodes = {
     push: 'push',
     pop: 'pop',
     gt: '>',
@@ -12,7 +12,9 @@ const opcodes = {
     not: '!'
 }
 
-const segments = {
+export const opcodeKeys = Object.keys(opcodes) 
+
+export const segments = {
     constant: 'constant',
     local: 'local',
     argument: 'argument',
@@ -23,4 +25,4 @@ const segments = {
     pointer: 'pointer'
 }
 
-module.exports = { opcodes, segments }
+export const segmentKeys = Object.keys(segments)
