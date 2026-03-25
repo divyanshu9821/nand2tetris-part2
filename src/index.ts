@@ -1,9 +1,9 @@
-import { inputFileRead, outputFileRemove, outputFileAppend } from "./fileIO.js";
+import { inputFileRead, outputFileCreate, outputFileAppend } from "./fileIO.js";
 import { tokenize } from "./tokenizer.js";
 import { translate } from "./translator.js";
 import {type tokenResObj } from "./types.js";
 
-outputFileRemove();
+outputFileCreate();
 
 const lines: string[] = inputFileRead();
 

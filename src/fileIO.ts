@@ -12,10 +12,8 @@ export function inputFileRead(): string[] {
 
 const outputFile = 'output.asm'
 
-export function outputFileRemove() {
-    try {
-        fs.unlinkSync(outputFile)
-    } catch (e) { }
+export function outputFileCreate() {
+    fs.writeFileSync(outputFile, "")
 }
 
 export function outputFileAppend(string: string) {
