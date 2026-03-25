@@ -1,6 +1,11 @@
-export const opcodes = {
+export const stackOpcodes = {
     push: 'push',
-    pop: 'pop',
+    pop: 'pop'
+}
+
+export const stackOpcodekeys = Object.keys(stackOpcodes)
+
+export const opcodes = {
     gt: '>',
     lt: '<',
     eq: '=',
