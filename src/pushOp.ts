@@ -9,27 +9,27 @@ function forConstant(i: number): string {
 
 function forReference(segment: string): string {
     return ""
-        + `@${segment}\n`
+        + `${segment}\n`
         + "A=D+M\n"
         + "D=M\n"
 }
 
 function forTemp(i: number): string {
     return ""
-        + `@${5 + i}\n`
+        + `@R${5 + i}\n`
         + "D=M\n"
 }
 
 function forPointer(i: number): string {
     let out = ""
     if (i == 0) {
-        out = "THIS"
+        out = segments.this
     } else if (i == 1) {
-        out = "THAT"
+        out = segments.that
     } else throw new Error()
 
     return ""
-        + `@${out}\n`
+        + `${out}\n`
         + "D=M\n"
 }
 
@@ -41,10 +41,10 @@ function forStatic(i: number): string {
 
 function finalStackPush(): string {
     return ""
-        + "@SP\n"
+        + "@R0\n"
         + "A=M\n"
         + "M=D\n"
-        + "@SP\n"
+        + "@R0\n"
         + "M=M+1\n"
 }
 

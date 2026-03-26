@@ -19,8 +19,8 @@ export const doubleOpcode: objLit = {
 }
 
 export const segments: objLit = {
-    local: 'LCL',
-    argument: 'ARG',
-    this: 'THIS',
-    that: 'THAT',
+    local: '@R1',
+    argument: '@R2',
+    this: '@R3',
+    that: '@R4',
 }

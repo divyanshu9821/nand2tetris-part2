@@ -5,11 +5,11 @@ function forReference(i: number, segment: string): string {
     return ""
         + `@${i}\n`
         + "D=A\n"
-        + `@${segment}\n`
+        + `${segment}\n`
         + "D=D+M\n"
         + "@R13\n"
         + "M=D\n"
-        + "@SP\n"
+        + "@R0\n"
         + "AM=M-1\n"
         + "D=M\n"
         + "@R13\n"
@@ -19,16 +19,16 @@ function forReference(i: number, segment: string): string {
 
 function forTemp(i: number): string {
     return ""
-        + "@SP\n"
+        + "@R0\n"
         + "AM=M-1\n"
         + "D=M\n"
-        + `@${5 + i}\n`
+        + `@R${5 + i}\n`
         + "M=D\n"
 }
 
 function forStatic(i: number): string {
     return ""
-        + "@SP\n"
+        + "@R0\n"
         + "AM=M-1\n"
         + "D=M\n"
         + `@${fileNameWithoutExt()}.${i}\n`
@@ -38,16 +38,16 @@ function forStatic(i: number): string {
 function forPointer(i: number): string {
     let out = ""
     if (i == 0) {
-        out = "THIS"
+        out = segments.this
     } else if (i == 1) {
-        out = "THAT"
+        out = segments.that
     } else throw new Error()
 
     return ""
-        + "@SP\n"
+        + "@R0\n"
         + "AM=M-1\n"
         + "D=M\n"
-        + `@${out}\n`
+        + `${out}\n`
         + "M=D\n"
 }
 

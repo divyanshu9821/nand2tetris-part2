@@ -1,8 +1,7 @@
-import { inputFileRead, outputFileCreate, outputFileAppend } from "./fileIO.js";
+import { inputFileRead, outputFileAppend } from "./fileIO.js";
 import { tokenize } from "./tokenizer.js";
 import { translate } from "./translator.js";
 
-outputFileCreate();
 
 const lines = inputFileRead();
 

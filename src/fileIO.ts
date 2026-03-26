@@ -2,7 +2,11 @@ import fs from 'fs'
 import path from 'path'
 
 const inputFile = process.argv[2]
-const outputFile = 'output.asm'
+
+export function fileNameWithoutExt() {
+    if (!inputFile) throw new Error('Input file is missing')
+    return path.parse(inputFile).name
+}
 
 export function inputFileRead(): string[] {
     if (!inputFile) throw new Error('Input file is missing')
@@ -10,15 +14,9 @@ export function inputFileRead(): string[] {
     return content.split('\n')
 }
 
-export function outputFileCreate(): void {
-    fs.writeFileSync(outputFile, "")
-}
-
 export function outputFileAppend(string: string): void {
-    fs.appendFileSync(outputFile, string)
-}
-
-export function fileNameWithoutExt() {
     if (!inputFile) throw new Error('Input file is missing')
-    return path.parse(inputFile).name
+    const f = path.parse(inputFile)
+    const outputFile = `${f.dir}/${f.name}.asm`
+    fs.appendFileSync(outputFile, string)
 }
