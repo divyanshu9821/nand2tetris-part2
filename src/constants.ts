@@ -1,33 +1,26 @@
-export const stackOpcodes = {
-    push: 'push',
-    pop: 'pop'
+type objLit = Record<string, any>
+
+export const relOpcode: objLit = {
+    gt: 'JGT',
+    lt: 'JLT',
+    eq: 'JEQ'
 }
 
-export const stackOpcodekeys = Object.keys(stackOpcodes)
-
-export const opcodes = {
-    gt: '>',
-    lt: '<',
-    eq: '=',
+export const singleOpcode: objLit = {
     neg: '-',
+    not: '!'
+}
+
+export const doubleOpcode: objLit = {
     add: '+',
     sub: '-',
     and: '&',
     or: '|',
-    not: '!'
 }
 
-export const opcodeKeys = Object.keys(opcodes) 
-
-export const segments = {
-    constant: 'constant',
-    local: 'local',
-    argument: 'argument',
-    static: 'static',
-    this: 'this',
-    that: 'that',
-    temp: 'temp',
-    pointer: 'pointer'
+export const segments: objLit = {
+    local: 'LCL',
+    argument: 'ARG',
+    this: 'THIS',
+    that: 'THAT',
 }
-
-export const segmentKeys = Object.keys(segments)

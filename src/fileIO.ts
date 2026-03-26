@@ -1,21 +1,24 @@
 import fs from 'fs'
+import path from 'path'
+
+const inputFile = process.argv[2]
+const outputFile = 'output.asm'
 
 export function inputFileRead(): string[] {
-    const inputFile: string = process.argv[2] || ""
-
     if (!inputFile) throw new Error('Input file is missing')
-
-    const content: string = fs.readFileSync(inputFile, 'utf8')
-
+    const content = fs.readFileSync(inputFile, 'utf8')
     return content.split('\n')
 }
 
-const outputFile = 'output.asm'
-
-export function outputFileCreate() {
+export function outputFileCreate(): void {
     fs.writeFileSync(outputFile, "")
 }
 
-export function outputFileAppend(string: string) {
+export function outputFileAppend(string: string): void {
     fs.appendFileSync(outputFile, string)
+}
+
+export function fileNameWithoutExt() {
+    if (!inputFile) throw new Error('Input file is missing')
+    return path.parse(inputFile).name
 }
